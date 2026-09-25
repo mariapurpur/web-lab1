@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EeveePika Shop</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="logo" href="#">
+                <span class="logo-pika">Pika</span><span class="logo-eevee">Eevee</span>
+                <span class="logo-shop">SHOP</span>
+            </a>
+
+            <p class="tagline">Вендор Иви и Пикачу</p>
+
+            <button class="cart-button" id="open-cart" type="button">
+                Корзина <span id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-content">
+                <div>
+                    <p class="eyebrow">EeveePika Shop</p>
+                    <p>
+                        Первый российский онлайн-магазин Pokemon TCG, ориентированный на эксклюзивы Пикачу и Иви!
+                        Мы импортируем карточки прямиком из Америки и только от проверенных вендоров.
+                    </p>
+                    <a class="hero-button" href="#cards">Смотреть каталог</a>
+                </div>
+                <div class="hero-pokemon" aria-hidden="true">
+                    <div class="pokemon-circle pika-circle">⚡</div>
+                    <div class="pokemon-circle eevee-circle">★</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="catalog-section container" id="cards">
+            <div class="section-heading">
+                <div>
+                    <h2>Карточки</h2>
+                </div>
+                <p class="stock-note">Если необходимой карточки нет в наличии, сообщите нам.</p>
+            </div>
+
+            <div class="product-grid" id="cards-list"></div>
+        </section>
+
+        <section class="catalog-section sets-section container">
+            <div class="section-heading">
+                <div>
+                    <h2>Наборы</h2>
+                </div>
+                <p class="stock-note">Пополнение наборов на складе каждый понедельник.</p>
+            </div>
+
+            <div class="product-grid" id="sets-list"></div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Цены включают в себя доставку в ваш город, дополнительно платить ничего не нужно :)</p>
+        </div>
+    </footer>
+
+    <div class="modal hidden" id="cart-modal">
+        <div class="modal-window cart-window">
+            <div class="modal-header">
+                <h2>Корзина</h2>
+                <button class="close-button" id="close-cart" type="button" aria-label="Закрыть">×</button>
+            </div>
+
+            <div id="cart-items" class="cart-items"></div>
+
+            <div class="cart-summary">
+                <p>Сумма: <strong id="cart-total">0 ₽</strong></p>
+                <button class="main-button" id="checkout-button" type="button">
+                    Оформить заказ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal hidden" id="order-modal">
+        <div class="modal-window">
+            <div class="modal-header">
+                <h2>Оформление заказа</h2>
+                <button class="close-button" id="close-order" type="button" aria-label="Закрыть">×</button>
+            </div>
+
+            <form id="order-form" class="order-form">
+                <label>
+                    Имя
+                    <input type="text" name="firstName" required>
+                </label>
+
+                <label>
+                    Фамилия
+                    <input type="text" name="lastName" required>
+                </label>
+
+                <label>
+                    Адрес доставки
+                    <input type="text" name="address" required>
+                </label>
+
+                <label>
+                    Контактный номер телефона
+                    <input type="tel" name="phone" required>
+                </label>
+
+                <button class="main-button" type="submit">Создать заказ</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal hidden" id="success-modal">
+        <div class="modal-window success-window">
+            <div class="success-icon">✓</div>
+            <h2>Заказ создан!</h2>
+            <p>Спасибо за заказ!</p>
+            <button class="main-button" id="close-success" type="button">Закрыть</button>
+        </div>
+    </div>
+
+    <script src="js/products.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
