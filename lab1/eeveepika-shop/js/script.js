@@ -1,5 +1,4 @@
 let cart = JSON.parse(localStorage.getItem("eeveePikaCart")) || [];
-
 const cardsList = document.getElementById("cards-list");
 const setsList = document.getElementById("sets-list");
 const cartModal = document.getElementById("cart-modal");
