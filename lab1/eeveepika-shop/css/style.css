@@ -241,11 +241,11 @@ button {
 .product-quantity-controls {
     width: 100%;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 16px;
 }
 
 .product-quantity-controls span {
-    min-width: 24px;
+    min-width: 11px;
     text-align: center;
     font-weight: 700;
     font-size: 18px;
@@ -375,8 +375,8 @@ button {
 }
 
 .quantity-button {
-    width: 32px;
-    height: 32px;
+    width: 43px;
+    height: 43px;
     border: 2px solid #3b2b20;
     border-radius: 7px;
     background: #ffd92f;
