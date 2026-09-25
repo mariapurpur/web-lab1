@@ -238,6 +238,19 @@ button {
     color: #6f5a4b;
 }
 
+.product-quantity-controls {
+    width: 100%;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.product-quantity-controls span {
+    min-width: 24px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+}
+
 .main-button {
     width: 100%;
     color: #3b2b20;

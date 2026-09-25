@@ -39,9 +39,30 @@ function renderProducts() {
         const card = document.createElement("article");
         card.className = "product-card";
 
-        const quantityInCart = getCartQuantity(product.id);
+        const quantity = getCartQuantity(product.id);
 
-        card.innerHTML = `
+		let buttonHtml = "";
+		
+		if (quantity === 0) {
+            buttonHtml = `
+                <button class="main-button add-button" type="button" data-id="${product.id}">
+                    Добавить в корзину
+                </button>
+            `;
+        } else {
+            const isMaxStock = quantity >= product.stock;
+            buttonHtml = `
+                <div class="quantity-controls product-quantity-controls">
+                    <button type="button" class="quantity-button minus-button" data-id="${product.id}">−</button>
+                    <span>${quantity}</span>
+                    <button type="button" class="quantity-button plus-button" data-id="${product.id}" ${isMaxStock ? "disabled" : ""}>
+                        +
+                    </button>
+                </div>
+            `;
+        }
+
+		card.innerHTML = `
             <div class="product-image-wrapper">
                 <img class="product-image" src="${product.image}" alt="${product.name}" onerror="this.style.display='none'; this.parentElement.classList.add('image-missing');">
             </div>
@@ -50,17 +71,10 @@ function renderProducts() {
                 <h3>${product.name}</h3>
                 <p class="product-price">${formatPrice(product.price)}</p>
                 <p class="product-stock">На складе: ${product.stock}</p>
-                <button
-                    class="main-button add-button"
-                    type="button"
-                    data-id="${product.id}"
-                    ${quantityInCart >= product.stock ? "disabled" : ""}
-                >
-                    ${quantityInCart >= product.stock ? "В корзине максимум" : "Добавить в корзину"}
-                </button>
+                ${buttonHtml}
             </div>
         `;
-
+        
         if (product.type === "card") {
             cardsList.appendChild(card);
         } else {
